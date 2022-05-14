@@ -107,7 +107,7 @@ jobs:
           vcvarsall: ${{ contains(matrix.os, 'windows' )}}
 
           cmake: true
-          ninja: true
+          ninja: false
           conan: true
           vcpkg: false
           ccache: true
@@ -115,8 +115,8 @@ jobs:
 
           cppcheck: true
 
-          gcovr: false
-          opencppcoverage: false
+          gcovr: true
+          opencppcoverage: true
 
       - name: Cleanup Conan system packages (they are not properly cached)
         run: |
