@@ -10,7 +10,7 @@ name: OSSAR
 
 on:
   push:
-    branches: [master]
+    branches: [main, master]
     paths:
       - "**.cpp"
       - "**.h"
