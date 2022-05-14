@@ -97,7 +97,7 @@ jobs:
           compiler: ${{ matrix.compiler }}
           build_type: ${{ matrix.build_type }}
           developer_mode: ${{ matrix.developer_mode }}
-          generator: ${{ matrix.generator } }
+          generator: ${{ matrix.generator }}
 
    
       - name: Setup Cpp
