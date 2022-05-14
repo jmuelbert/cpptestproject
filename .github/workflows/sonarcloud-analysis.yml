@@ -97,24 +97,9 @@ jobs:
           compiler: ${{ matrix.compiler }}
           build_type: ${{ matrix.build_type }}
           developer_mode: ${{ matrix.developer_mode }}
-          generator: ${{ matrix.generator }}
+          generator: ${{ matrix.generator } }
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v3 # not v2!
-        with:
-          path: ${{ runner.workspace }}/Qt
-          key: ${{ runner.os }}-QtCache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2.14.0
-        with:
-          version: ${{ matrix.qt_version }}
-          target: ${{ matrix.qt_target }}
-          arch: ${{ matrix.qt_arch }}
-          # modules: 'qtscript'
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
+   
       - name: Setup Cpp
         uses: aminya/setup-cpp@v1
         with:
