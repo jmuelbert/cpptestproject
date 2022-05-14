@@ -55,7 +55,7 @@ class cppTestConan(ConanFile):
         "txt"
     )
 
-   @property
+    @property
     def _run_tests(self):
         return tools.get_env("CONAN_RUN_TESTS", False)
 
