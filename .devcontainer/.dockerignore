@@ -2,7 +2,6 @@
 build/
 out/
 cmake-build-*/
-conan-cache/
 
 # User spesific settings
 CMakeUserPresets.json
@@ -24,7 +23,6 @@ _ReSharper*
 .DS_Store
 .AppleDouble
 .LSOverride
-.cache/
 ._*
 .Spotlight-V100
 .Trashes
@@ -33,3 +31,4 @@ $RECYCLE.BIN/
 .TemporaryItems
 ehthumbs.db
 Thumbs.db
+Dockerfile
