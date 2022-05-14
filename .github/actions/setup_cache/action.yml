@@ -1,6 +1,5 @@
-
-name: 'setup_cache'
-description: 'sets up the shared cache'
+name: "setup_cache"
+description: "sets up the shared cache"
 inputs:
   compiler:
     required: true
@@ -14,7 +13,6 @@ inputs:
   developer_mode:
     required: true
     type: string
-
 
 runs:
   using: "composite"
