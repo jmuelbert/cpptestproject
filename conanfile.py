@@ -68,6 +68,12 @@ class cppTestConan(ConanFile):
         "txt"
     )
 
+    requires = (
+        "spdlog/[>=1.9.2]",
+        "cli11/2.2.0",
+        "catch2/2.13.9"
+    )
+
     @property
     def _run_tests(self):
         return get_env("CONAN_RUN_TESTS", False)
@@ -95,6 +101,19 @@ class cppTestConan(ConanFile):
         else:
             return int(f"{compiler.version}0")
 
+
+    @property
+    def _source_subfolder(self):
+        return "source_subfolder"
+
+    @property
+    def _build_subfolder(self):
+        return "build_subfolder"
+
+    def config_options(self):
+        if self.settings.os == "Windows":
+            del self.options.fPIC
+
     def set_version(self):
         content = load(self, os.path.join(self.recipe_folder, "CMakeLists.txt"))
         version = re.search(r"project\([^\)]+VERSION (\d+\.\d+\.\d+)[^\)]*\)", content).group(1)
@@ -106,11 +125,6 @@ class cppTestConan(ConanFile):
 
         if self._use_range_v3:
             self.requires("range-v3/0.11.0")
-
-        self.requires("spdlog/[>=1.9.2]")
-        self.requires("cli11/2.2.0")
-        # self.requires("extra-cmake-modules/5.93.0")
-        self.requires("catch2/2.13.9")
 
     def build_requirements(self):
         if self.options.build_docs:
