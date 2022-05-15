@@ -13,13 +13,13 @@ from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain
 from conan.tools.files import copy, load, rmdir
 from conan.tools.gnu import AutotoolsToolchain, AutotoolsDeps
 from conan.tools.microsoft import unix_path, VCVars, is_msvc
-from conan.tools.scm import Version
+# from conan.tools.scm import Version
 from conan.errors import ConanInvalidConfiguration
 from conan.errors import ConanException
 
 # TODO  replace with new tools from Conan 2.0
 from conans.tools import check_min_cppstd, get_env
-
+from conans.tools import Version
 required_conan_version = ">=1.47.0"
 
 
@@ -120,6 +120,7 @@ class cppTestConan(ConanFile):
     def configure(self):
         compiler = self.settings.compiler
         version = Version(str(self.settings.compiler.version))
+        print(version)
         if compiler == "gcc":
             if version < 10:
                 raise ConanInvalidConfiguration("mp-units requires at least g++-10")
