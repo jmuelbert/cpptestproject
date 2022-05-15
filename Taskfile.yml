@@ -3,7 +3,7 @@ version: 3
 
 tasks:
   test:
-    - cmake -S . -B ./build -DCMAKE_BUILD_TYPE:STRING=Debug -G '{{.CMAKE_GENERATOR | default "Ninja Multi-Config"}}'
+    - cmake -S . -B ./build
     - cmake --build ./build --config Debug
     - cd ./build && ctest -C Debug --verbose
 

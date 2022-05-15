@@ -20,6 +20,7 @@ words:
   - buildtools
   - ccache
   - ccmake
+  - cflags
   - choco
   - cmake
   - cmakelint
@@ -33,9 +34,12 @@ words:
   - cppcoreguidelines
   - CPPFLAGS
   - cpprc
+  - cppstd
+  - cpptestproject
   - cpptools
   - ctest
   - Cuda
+  - cxxflags
   - DCMAKE
   - deps
   - Dont
@@ -59,6 +63,9 @@ words:
   - LDFLAGS
   - libc
   - libcuda
+  - libcxx
+  - libdirs
+  - libfmt
   - libstdc
   - LPSTR
   - LPWSTR
@@ -87,11 +94,13 @@ words:
   - qttools
   - qttranslation
   - qttranslations
+  - resdirs
   - rmrf
   - rpath
   - sccache
   - setx
   - shlib
+  - spdlog
   - Struct
   - suppr
   - TOLOWER

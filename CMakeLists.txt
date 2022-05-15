@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.16...3.23)
 
+include(FeatureSummary)
+
 # Not ideal to use this global variable, but necessary to make sure
 # that tooling and projects use the same version
 set(CMAKE_CXX_STANDARD 20)
@@ -132,7 +134,7 @@ add_subdirectory(configured_files)
 add_subdirectory(src)
 
 # Adding the tests:
-option(ENABLE_TESTING "Enable the tests" ${PROJECT_IS_TOP_LEVEL})
+option(ENABLE_TESTING "Enable the tests" OFF)
 if(ENABLE_TESTING)
   enable_testing()
   message(AUTHOR_WARNING "Building Tests. Be sure to check out test/constexpr_tests.cpp for constexpr testing")
@@ -181,3 +183,10 @@ set(CPACK_PACKAGE_FILE_NAME
 )
 
 include(CPack)
+
+feature_summary(
+  WHAT ENABLED_FEATURES
+  INCLUDE_QUIET_PACKAGES
+  DESCRIPTION "Enabled Features:"
+  VAR enabledFeaturesText)
+message(STATUS "${enabledFeaturesText}")
