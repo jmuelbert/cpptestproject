@@ -10,7 +10,7 @@ import re
 
 from conan import ConanFile
 from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain
-from conan.tools.files import copy, load, rmdir
+from conan.tools.files import load, rmdir
 from conan.tools.gnu import AutotoolsToolchain, AutotoolsDeps
 from conan.tools.microsoft import unix_path, VCVars, is_msvc
 # from conan.tools.scm import Version
@@ -20,7 +20,7 @@ from conan.errors import ConanException
 # TODO  replace with new tools from Conan 2.0
 from conans.tools import check_min_cppstd, get_env
 from conans.tools import Version
-required_conan_version = ">=1.47.0"
+required_conan_version = ">=1.45.0"
 
 
 class cppTestConan(ConanFile):
@@ -172,11 +172,11 @@ class cppTestConan(ConanFile):
         self.info.header_only()
 
     def package(self):
-        copy(self,
-             "LICENSE",
-             self.source_folder,
-             os.path.join(self.package_folder, "licenses"),
-        )
+        # copy(self,
+        #     "LICENSE",
+        #     self.source_folder,
+        #       os.path.join(self.package_folder, "licenses"),
+        #  )
         cmake = CMake(self)
         cmake.install()
         rmdir(os.path.join(self.package_folder, "lib", "cmake"))
