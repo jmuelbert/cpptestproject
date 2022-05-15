@@ -11,6 +11,7 @@ allowCompoundWords: true
 enableGlobDot: true
 words:
   - aarch
+  - ahmadnassri
   - aminya
   - Amnet
   - anotherproj
@@ -25,11 +26,15 @@ words:
   - cmake
   - cmakelint
   - cmds
+  - cobertura
+  - codacy
+  - Codacy
   - codecov
   - codeql
   - cond
   - cpack
   - CPATH
+  - cppcheck
   - Cppcheck
   - cppcoreguidelines
   - CPPFLAGS
@@ -42,6 +47,7 @@ words:
   - cxxflags
   - DCMAKE
   - deps
+  - DGIT
   - Dont
   - DOPT
   - dyld
@@ -51,7 +57,9 @@ words:
   - fargs
   - fcolor
   - fdiagnostics
+  - frameworkdirs
   - ftime
+  - gcov
   - gcovr
   - gmock
   - Graphviz
@@ -80,8 +88,12 @@ words:
   - myproj
   - myproject
   - nothrow
+  - nproc
   - nvcc
+  - opencppcoverage
   - Opencppcoverage
+  - ossar
+  - OSSAR
   - pargs
   - pnpm
   - PTRACE
@@ -97,12 +109,15 @@ words:
   - resdirs
   - rmrf
   - rpath
+  - sarif
   - sccache
   - setx
   - shlib
+  - sobolevn
   - spdlog
   - Struct
   - suppr
+  - SYSREQUIRES
   - TOLOWER
   - TOUPPER
   - twxs

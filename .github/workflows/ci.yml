@@ -4,9 +4,11 @@ on:
   release:
     types: [published]
   push:
-    tags:
+    tags: 
+      - '*'
     branches:
       - main
+      - master
       - develop
 
 env:

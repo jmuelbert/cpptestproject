@@ -20,7 +20,7 @@ from conan.errors import ConanException
 # TODO  replace with new tools from Conan 2.0
 from conans.tools import check_min_cppstd, get_env
 
-required_conan_version = ">=1.48.0"
+required_conan_version = ">=1.47.0"
 
 
 class cppTestConan(ConanFile):
@@ -110,11 +110,9 @@ class cppTestConan(ConanFile):
         self.requires("spdlog/[>=1.9.2]")
         self.requires("cli11/2.2.0")
         # self.requires("extra-cmake-modules/5.93.0")
+        self.requires("catch2/2.13.9")
 
     def build_requirements(self):
-        if self._run_tests:
-            self.requires("catch2/2.13.9")
-
         if self.options.build_docs:
             self.tool_requires("doxygen/1.9.4")
 
@@ -176,7 +174,7 @@ class cppTestConan(ConanFile):
         )
         cmake = CMake(self)
         cmake.install()
-        tools.rmdir(os.path.join(self.package_folder, "lib", "cmake"))
+        rmdir(os.path.join(self.package_folder, "lib", "cmake"))
 
     def package_info(self):
         compiler = self.settings.compiler
