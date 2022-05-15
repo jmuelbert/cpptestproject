@@ -119,7 +119,7 @@ class cppTestConan(ConanFile):
     # TODO Replace with `valdate()` for Conan 2.0 (https://github.com/conan-io/conan/issues/10723)
     def configure(self):
         compiler = self.settings.compiler
-        version = Version(self.settings.compiler.version)
+        version = Version(str(self.settings.compiler.version))
         if compiler == "gcc":
             if version < 10:
                 raise ConanInvalidConfiguration("mp-units requires at least g++-10")
