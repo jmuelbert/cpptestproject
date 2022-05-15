@@ -117,24 +117,28 @@ class cppTestConan(ConanFile):
             self.tool_requires("doxygen/1.9.4")
 
     # TODO Replace with `valdate()` for Conan 2.0 (https://github.com/conan-io/conan/issues/10723)
-    def configure(self) :
+    def configure(self):
         compiler = self.settings.compiler
         version = Version(self.settings.compiler.version)
         if compiler == "gcc":
             if version < 10:
-                raise ConanInvalidConfiguration("cpptestproject requires at least g++-10")
+                raise ConanInvalidConfiguration("mp-units requires at least g++-10")
         elif compiler == "clang":
             if version < 12:
-                raise ConanInvalidConfiguration("cpptestproject requires at least clang++-12")
+                raise ConanInvalidConfiguration("mp-units requires at least clang++-12")
         elif compiler == "apple-clang":
             if version < 13:
-                raise ConanInvalidConfiguration("cpptestproject requires at least AppleClang 13")
+                raise ConanInvalidConfiguration(
+                    "mp-units requires at least AppleClang 13"
+                )
         elif compiler == "Visual Studio":
             if version < 16:
-                raise ConanInvalidConfiguration("cpptestproject requires at least Visual Studio 16.9")
+                raise ConanInvalidConfiguration(
+                    "mp-units requires at least Visual Studio 16.9"
+                )
         elif compiler == "msvc":
             if self._msvc_version < 1928:
-                raise ConanInvalidConfiguration("cpptestproject requires at least MSVC 19.28")
+                raise ConanInvalidConfiguration("mp-units requires at least MSVC 19.28")
         else:
             raise ConanInvalidConfiguration("Unsupported compiler")
         check_min_cppstd(self, 20)
